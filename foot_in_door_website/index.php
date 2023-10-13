@@ -76,6 +76,7 @@ require_once('../lib/functions.php');
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">Example of made resume</h1>
+			<p class="lead fw-normal text-white-50 mb-0"><a "" href="../pages/tips.php">Click to see quality examples</a></p>
                 </div>
             </div>
         </header>
