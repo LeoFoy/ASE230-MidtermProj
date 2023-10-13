@@ -1,5 +1,5 @@
 <?php
-require_once('../lib/functions.php');
+    require_once('../lib/functions.php');
 ?>
 
 <!DOCTYPE html>
@@ -64,6 +64,18 @@ require_once('../lib/functions.php');
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">Career Connections</h1>
+                    <?php
+                        $array_json = jsonFiletoArray("../data/discPosts.json");
+                    ?>
+                    <a href="../pages/discussion_board/createPost.php">Create Post</a>
+                    <?php 
+                        for($i=0; $i<count($array_json); $i++) 
+                        { ?>
+                            <a href="../pages/discussion_board/postDetail.php?index=<?php echo $i; ?>"><p><?php echo $array_json[$i]['PostTitle']; ?></p></a>
+                            <br>
+                            <hr>
+                    <?php } ?>
+                    
                     <!--Discussion board like canvas? doesn't have to have user auth-->
                     <!--description here-->
                     <!--reply box-->
