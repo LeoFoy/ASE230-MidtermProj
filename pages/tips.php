@@ -73,9 +73,10 @@ require_once('../lib/functions.php');
 		</ul>
 		
 		<h2>Examples of Quality Resumes</h2>
-		<img class="picture" src="resume1.png" alt="">
-		<img class="picture" src="resume2.png" alt="">
-		<img class="picture" src="resume3.wepb" alt="">
+		<img class="picture" src="../foot_in_door_website/assets/resume1.png" alt="image1" width="750" height="1000">
+		<img class="picture" src="../foot_in_door_website/assets/resume2.png" alt="image2" width="750" height="1000">
+		<img class="picture" src="../foot_in_door_website/assets/resume3.jpg" alt="image3" width="750" height="1000">
+		<img class="picture" src="../foot_in_door_website/assets/resume4.png" alt="image4" width="750" height="1000">
 
         <!-- Footer-->
         <footer class="py-5 bg-dark">
