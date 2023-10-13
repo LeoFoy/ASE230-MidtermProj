@@ -65,7 +65,7 @@ require_once("../data/contacts.php");
 
 <?php foreach($contacts as $name) { ?>
 	<h4><?=$name['name'].""?></h4>
-	<img class="picture" src=<?=$name['picture'].""?> alt="">
+	<img class="picture" src=<?=$name['picture'].""?> alt="" width="150" height="150">
 	<p><?=$name['email'].""?> <br> <?=$name['phone'].""?></p>
 	<br>
 <?php } ?>
