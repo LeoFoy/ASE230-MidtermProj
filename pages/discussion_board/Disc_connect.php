@@ -1,5 +1,5 @@
 <?php
-    require_once('../lib/functions.php');
+    require_once('../../lib/functions.php');
 ?>
 
 <!DOCTYPE html>
@@ -11,11 +11,11 @@
         <meta name="author" content="" />
         <title>Shop Homepage - Start Bootstrap Template</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="../foot_in_door_website/assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="../../foot_in_door_website/assets/favicon.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../foot_in_door_website/css/styles.css" rel="stylesheet" />
+        <link href="../../foot_in_door_website/css/styles.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
@@ -65,13 +65,13 @@
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">Career Connections</h1>
                     <?php
-                        $array_json = jsonFiletoArray("../data/discPosts.json");
+                        $array_json = jsonFiletoArray("../../data/discPosts.json");
                     ?>
-                    <a href="../pages/discussion_board/createPost.php">Create Post</a>
+                    <a href="createPost.php">Create Post</a>
                     <?php 
                         for($i=0; $i<count($array_json); $i++) 
                         { ?>
-                            <a href="../pages/discussion_board/postDetail.php?index=<?php echo $i; ?>"><p><?php echo $array_json[$i]['PostTitle']; ?></p></a>
+                            <a href="postDetail.php?index=<?php echo $i; ?>"><p><?php echo $array_json[$i]['PostTitle']; ?></p></a>
                             <br>
                             <hr>
                     <?php } ?>

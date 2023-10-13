@@ -1,5 +1,5 @@
 <?php
-require_once('../lib/functions.php');
+    require_once('../../lib/functions.php');
 ?>
 
 <!DOCTYPE html>
@@ -11,11 +11,11 @@ require_once('../lib/functions.php');
         <meta name="author" content="" />
         <title>Shop Homepage - Start Bootstrap Template</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="../foot_in_door_website/assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="../../foot_in_door_website/assets/favicon.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../foot_in_door_website/css/styles.css" rel="stylesheet" />
+        <link href="../../foot_in_door_website/css/styles.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
