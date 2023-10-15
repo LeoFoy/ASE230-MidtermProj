@@ -67,12 +67,12 @@
                     <?php
                         $array_json = jsonFiletoArray("../../data/discPosts.json");
                     ?>
-                    <a href="createPost.php">Create Post</a>
+                    <button><a href="createPost.php">Create Post</a></button>
+                    <hr>
                     <?php 
                         for($i=0; $i<count($array_json); $i++) 
                         { ?>
                             <a href="postDetail.php?index=<?php echo $i; ?>"><p><?php echo $array_json[$i]['PostTitle']; ?></p></a>
-                            <br>
                             <hr>
                     <?php } ?>
                     

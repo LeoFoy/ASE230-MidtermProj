@@ -73,15 +73,17 @@
                     } else {
                     ?>
                     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" >
-                        Title:<input type="text" name="Page" required></input><br>
+                        <p>Title:</p>
+                        <input size="50" type="text" name="PostTitle" required></input><br>
                         </br>
-                        Post Description:<textarea name="PageDesc" required></textarea><br>
+                        <p>Post Description:</p>
+                        <textarea rows="20" cols="100" name="PostBody" required></textarea><br>
                         </br>
                         <button type="submit">Post</button>
                     </form>
                     <?php
                     } ?>
-                    <a href="index.php">Back to Posts</a>
+                    <a href="discussion_board.php">Back to Posts</a>
                     
                     <!--Discussion board like canvas? doesn't have to have user auth-->
                     <!--description here-->
