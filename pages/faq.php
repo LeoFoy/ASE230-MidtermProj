@@ -11,11 +11,11 @@ require_once('../lib/functions.php');
         <meta name="author" content="" />
         <title>Shop Homepage - Start Bootstrap Template</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="../foot_in_door_website/assets/favicon.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="../foot_in_door_website/css/styles.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
@@ -53,37 +53,26 @@ require_once('../lib/functions.php');
                 </div>
             </div>
         </nav>
-        <!-- Header-->
+		<!-- Header-->
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Create Your Dream Resume Today!</h1>
-                    <p class="lead fw-normal text-white-50 mb-0"><a "" href="../pages/create_resume.php">Click to Create Resume now</a></p>
+                    <h1 class="display-4 fw-bolder">Frequently Asked Questions</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Have Questions? We're here to help!</p>
                 </div>
             </div>
         </header>
 		
-		<header class="bg-dark py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Tips to include:</h1>
-					<p class="lead fw-normal text-white-50 mb-0"><a "" href="../pages/tips.php">Click to view important items to include in your resume!</a></p>
-                </div>
-            </div>
-        </header>
+		<ul>
+			<li>Question: Do I need an account to create a resume? <br> Answer: Yes, this is to ensure your new resume is delivered to your email!</li>
+			<li>Question: What is most important to include on my resume? <br> Answer: Great question! Visit our <a href="../pages/tips.php">Resume-Making Tips</a> page for everything you need to include on your resume!</li>
+			<li>Question: I'm having trouble creating my resume. <br> Answer: No problem! Email or call one of us from our <a href="../pages/contact_us.php">Contact Us</a> page.</li>
+			<li>Question: Why is my credit card not going through? <br> Answer: Make sure you are using a credit card we carry. We carry Mastercard, Visa, and Discover. If your credit card is from one of the three comapnies, try contacting your credit card provider. </li>
+		</ul>
 		
-		<header class="bg-dark py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Example of made resume</h1>
-			<p class="lead fw-normal text-white-50 mb-0"><a "" href="../pages/tips.php">Click to see quality examples</a></p>
-                </div>
-            </div>
-        </header>
- 
-  
-  
-  
+		<p>None of these questions help?</p>
+		<a href="../pages/contact_us.php">Contact Us</a></li>
+
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Foot in Door 2023</p></div>
@@ -91,6 +80,6 @@ require_once('../lib/functions.php');
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+        <script src="../foot_in_door_website/js/scripts.js"></script>
+	</body>
 </html>

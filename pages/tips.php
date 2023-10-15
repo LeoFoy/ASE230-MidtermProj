@@ -11,11 +11,11 @@ require_once('../lib/functions.php');
         <meta name="author" content="" />
         <title>Shop Homepage - Start Bootstrap Template</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="../foot_in_door_website/assets/favicon.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="../foot_in_door_website/css/styles.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
@@ -53,37 +53,31 @@ require_once('../lib/functions.php');
                 </div>
             </div>
         </nav>
-        <!-- Header-->
+		<!-- Header-->
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Create Your Dream Resume Today!</h1>
-                    <p class="lead fw-normal text-white-50 mb-0"><a "" href="../pages/create_resume.php">Click to Create Resume now</a></p>
+                    <h1 class="display-4 fw-bolder">Important Tips</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Make sure to include these on your resume!</p>
                 </div>
             </div>
         </header>
 		
-		<header class="bg-dark py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Tips to include:</h1>
-					<p class="lead fw-normal text-white-50 mb-0"><a "" href="../pages/tips.php">Click to view important items to include in your resume!</a></p>
-                </div>
-            </div>
-        </header>
+		<ul>
+			<li>Include name, address, email, and phone number. Also include linkedin username and website url if you have one.</li>
+			<li>Include a summary about yourself and what you hope to achieve if you get this new job</li>
+			<li>Include work history including job title, company worked for, location, and job description. Also consider including achievements gained from the job.</li>
+			<li>Include previously and/or currently attended schools.</li>
+			<li>Consider adding a professional headshot of you so your potential employers have an idea what you look like.</li>
+			<li>Consider including favorite hobbies. Some employers like to see what you are like outside of work.</li>
+		</ul>
 		
-		<header class="bg-dark py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Example of made resume</h1>
-			<p class="lead fw-normal text-white-50 mb-0"><a "" href="../pages/tips.php">Click to see quality examples</a></p>
-                </div>
-            </div>
-        </header>
- 
-  
-  
-  
+		<h2>Examples of Quality Resumes</h2>
+		<img class="picture" src="../foot_in_door_website/assets/resume1.png" alt="image1" width="750" height="1000">
+		<img class="picture" src="../foot_in_door_website/assets/resume2.png" alt="image2" width="750" height="1000">
+		<img class="picture" src="../foot_in_door_website/assets/resume3.jpg" alt="image3" width="750" height="1000">
+		<img class="picture" src="../foot_in_door_website/assets/resume4.png" alt="image4" width="750" height="1000">
+
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Foot in Door 2023</p></div>
@@ -91,6 +85,6 @@ require_once('../lib/functions.php');
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+        <script src="../foot_in_door_website/js/scripts.js"></script>
+	</body>
 </html>
