@@ -1,5 +1,5 @@
 <?php
-require_once('../lib/functions.php');
+    require_once('../../lib/functions.php');
 ?>
 
 <!DOCTYPE html>
@@ -11,11 +11,11 @@ require_once('../lib/functions.php');
         <meta name="author" content="" />
         <title>Shop Homepage - Start Bootstrap Template</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="../foot_in_door_website/assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="../../foot_in_door_website/assets/favicon.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../foot_in_door_website/css/styles.css" rel="stylesheet" />
+        <link href="../../foot_in_door_website/css/styles.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
@@ -63,7 +63,23 @@ require_once('../lib/functions.php');
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Career Connections</h1>
+                    <h1 class="display-4 fw-bolder">Celebrations</h1>
+                    <?php
+                        $array_json = jsonFiletoArray("../../data/discPosts.json");
+                    ?>
+                    <button><a href="createPost.php">Create Post</a></button>
+                    <hr>
+                    <?php 
+                        for($i=0; $i<count($array_json); $i++) 
+                        { ?>
+                            <?php if ($array_json[$i]['Category'] == "celebrate") {?>
+                                <a href="postDetail.php?index=<?php echo $i; ?>"><p><?php echo $array_json[$i]['PostTitle']; ?></p></a>
+                                <hr>
+                            <?php }?>
+                    <?php } ?>
+
+                    <a href="discussion_board.php">Back to Topics</a>
+                    
                     <!--Discussion board like canvas? doesn't have to have user auth-->
                     <!--description here-->
                     <!--reply box-->
