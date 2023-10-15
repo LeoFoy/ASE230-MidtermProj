@@ -2,7 +2,7 @@
 require_once('../lib/functions.php');
 require_once('../lib/csvFunc.php');
 
-$tipsArray = csvFiletoArrayWithTwoIndexes('../data/tips.csv');
+$tipsArray = csvFiletoArrayWithOneIndexes('../data/tips.csv');
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +70,7 @@ $tipsArray = csvFiletoArrayWithTwoIndexes('../data/tips.csv');
 			<?php
 			if(!empty($tipsArray)){
 				for($i=0; $i < count($tipsArray); $i++){ ?>
-				<li><b>Tip <?php echo $i+1; echo ': </b>';?><?=$tipsArray[$i][1]; ?></li>
+				<li><b>Tip <?php echo $i+1; echo ': </b>';?><?=$tipsArray[$i][0]; ?></li>
 			<?php } }?>
 		</ul>
 		
@@ -90,3 +90,4 @@ $tipsArray = csvFiletoArrayWithTwoIndexes('../data/tips.csv');
         <script src="../foot_in_door_website/js/scripts.js"></script>
 	</body>
 </html>
+
