@@ -1,6 +1,6 @@
 <?php
-
-$faqArray = csvFiletoArrayWithTwoIndexes('../data/faq.csv');
+    require_once('../lib/csvFunc.php');
+    $faqArray = csvFiletoArrayWithTwoIndexes('../data/faq.csv');
 ?>
 
 <!DOCTYPE html>
