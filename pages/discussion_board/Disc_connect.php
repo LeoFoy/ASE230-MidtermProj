@@ -72,9 +72,13 @@
                     <?php 
                         for($i=0; $i<count($array_json); $i++) 
                         { ?>
-                            <a href="postDetail.php?index=<?php echo $i; ?>"><p><?php echo $array_json[$i]['PostTitle']; ?></p></a>
-                            <hr>
+                            <?php if ($array_json[$i]['Category'] == "connect") {?>
+                                <a href="postDetail.php?index=<?php echo $i; ?>"><p><?php echo $array_json[$i]['PostTitle']; ?></p></a>
+                                <hr>
+                            <?php }?>
                     <?php } ?>
+
+                    <a href="discussion_board.php">Back to Topics</a>
                     
                     <!--Discussion board like canvas? doesn't have to have user auth-->
                     <!--description here-->

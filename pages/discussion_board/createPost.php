@@ -63,16 +63,22 @@
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Career Connections</h1>
+                    <h1 class="display-4 fw-bolder">New Post</h1>
                     <?php
                     if(count($_POST)>0){
                         //Process info
                         appendJsonArraytoFile("../../data/discPosts.json");
-                        header('location: Disc_connect.php');
+                        header('location: discussion_board.php');
 
                     } else {
                     ?>
                     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" >
+                        <p>Topic: </p>
+                        <select name="Category">
+                            <option value="connect">Career Connections</option>
+                            <option value="celebrate">Celebrations</option>
+                            <option value="strat">Interview Strategies</option>
+                        </select>
                         <p>Title:</p>
                         <input size="50" type="text" name="PostTitle" required></input><br>
                         </br>
@@ -83,7 +89,7 @@
                     </form>
                     <?php
                     } ?>
-                    <a href="discussion_board.php">Back to Posts</a>
+                    <a href="discussion_board.php">Back to Topics</a>
                     
                     <!--Discussion board like canvas? doesn't have to have user auth-->
                     <!--description here-->
