@@ -1,13 +1,17 @@
 <?php
 require_once('../lib/functions.php');
-    //if the resume has been sumbitted
-    if (count($_POST)>0){
-        $filename = createNewJsonfileFromArray($_POST);
-        //send the filename through GET to display resume
-        header("location: display_resume.php?resume=".$filename);
-    }
-    else{
 ?>
+
+<?php
+//the page is not accessible without a json path sent to it to display
+if (!isset($_GET['resume'])){
+    header('location: ../foot_in_door_website/index.php');
+}
+    //display the resume
+else{
+	$resumeArray = jsonFiletoArray($_GET['resume']);
+	?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -15,7 +19,7 @@ require_once('../lib/functions.php');
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title><?='Create Resume Page'?></title>
+        <title><?='View Resume'?></title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="../foot_in_door_website/assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -29,7 +33,7 @@ require_once('../lib/functions.php');
             <div class="container px-4 px-lg-5">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-closed-fill" viewBox="0 0 16 16">
 				<path d="M12 1a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2a1 1 0 0 1 1-1h8zm-2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-				</svg><a class="navbar-brand" href="<?='../foot_in_door_website/'?>"><?='Foot In Door'?></a>
+				</svg><a class="navbar-brand" href="#!">Foot In Door</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
@@ -55,9 +59,9 @@ require_once('../lib/functions.php');
 						</svg>
 						<?php
 						if(isset($_SESSION['username']) && isset($_SESSION['password'])){ ?>
-							<a class="nav-link" href="user_profile.php">Go To Profile</a>
+							<a class="nav-link" href="../pages/user_profile.php">Go To Profile</a>
 						<?php } else { ?>
-							<a class="nav-link" href="signup_or_login.php">Signup/Login</a>
+							<a class="nav-link" href="../pages/signup_or_login.php">Signup/Login</a>
 						<?php } ?>
                             
                         </button>
@@ -68,33 +72,29 @@ require_once('../lib/functions.php');
         <!-- Header-->
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder"><?="Enter the information to create your resume"?></h1>
-                </div>
-    <form method="POST" >
 
-    <article class="resume-wrapper text-center position-relative">
+<article class="resume-wrapper text-center position-relative">
         <div class="resume-wrapper-inner mx-auto text-start bg-white shadow-lg">
             <header class="resume-header pt-4 pt-md-0">
                 <div class="row">
                     <div class="col">
-                        
+                      
                             <div class="primary-info col-auto">
 
-                                <h1 class="name mt-0 mb-1 text-white text-uppercase text-uppercase"><input type="text" name="name" placeholder="Name"></input></h1>
+                                <h1 class="name mt-0 mb-1 text-black text-uppercase text-uppercase"><?=$resumeArray["name"]?></h1>
                         
                                 <ul class="list-unstyled">
-                                    <li class="mb-2"><a class="text-link"><i class="far fa-envelope fa-fw me-2" data-fa-transform="grow-3"></i><input type="email" name="email" placeholder="Email Address"></input></a></li>
-                                <li><a class="text-link"><i class="fas fa-mobile-alt fa-fw me-2" data-fa-transform="grow-6"></i><input type="text" name="phone" placeholder="Phone Number"></input></a></li>
+                                    <li class="mb-2"><a class="text-link" href="#"><i class="far fa-envelope fa-fw me-2" data-fa-transform="grow-3"></i><?=$resumeArray["email"]?></a></li>
+                                <li><a class="text-link" href="#"><i class="fas fa-mobile-alt fa-fw me-2" data-fa-transform="grow-6"></i><?=$resumeArray["phone"]?></a></li>
                               
                                 </ul>
                             </div><!--//primary-info-->
                             <div class="secondary-info col-auto mt-2">
                                 
                                 <ul class="resume-social list-unstyled">
-                                    <li class="mb-3"><span class="fa-container text-center me-2"><i class="fab fa-linkedin-in fa-fw"></i></span><input type="text" name="linkedin" placeholder="Linkedin Link"></input></a></li>
-                                    <li class="mb-3"><a class="text-link" ><span class="fa-container text-center me-2"><i class="fab fa-github-alt fa-fw"></i></span><input type="text" name="github" placeholder="Github Link"></input></a></li>
-                                    <li><a><span class="fa-container text-center me-2"><i class="fas fa-globe"></i></span><input type="text" name="website" placeholder="Website Link"></input></a></li>
+                                    <li class="mb-3"><span class="fa-container text-center me-2"><i class="fab fa-linkedin-in fa-fw"></i></span><?=$resumeArray["linkedin"]?></a></li>
+                                    <li class="mb-3"><a class="text-link" href="#"><span class="fa-container text-center me-2"><i class="fab fa-github-alt fa-fw"></i></span><?=$resumeArray["github"]?></a></li>
+                                    <li><a class="text-link" href="#"><span class="fa-container text-center me-2"><i class="fas fa-globe"></i></span><?=$resumeArray["website"]?></a></li>
                                 </ul>
                             </div><!--//secondary-info-->
                         <!--//row-->
@@ -105,7 +105,7 @@ require_once('../lib/functions.php');
                 <section class="resume-section summary-section mb-5">
                     <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3"><?='Summary'?></h2>
                     <div class="resume-section-content">
-                        <p class="mb-0"><input type="textbox" name="summary" placeholder="Summary of Yourself"></input></p>
+                        <p class="mb-0"><?=$resumeArray["summary"]?></p>
                     </div>
                 
                 </section><!--//summary-section-->
@@ -119,23 +119,23 @@ require_once('../lib/functions.php');
                                     <article class="resume-timeline-item position-relative pb-5">
                                         <div class="resume-timeline-item-header mb-2">
                                             <div class="d-flex flex-column flex-md-row">
-                                                <h3 class="resume-position-title font-weight-bold mb-1"><input type="text" name="job1Title" placeholder="Last Job"></input></h3>
-                                                <div class="resume-company-name ms-auto"><input type="text" name="job1Company" placeholder="Last Job Company"></div>
+                                                <h3 class="resume-position-title font-weight-bold mb-1"><?=$resumeArray["job1Title"]?></h3>
+                                                <div class="resume-company-name ms-auto"><?=$resumeArray["job1Company"]?></div>
                                             </div><!--//row-->
-                                            <div class="resume-position-time"><input type="text" name="job1Tenure" placeholder="Start Month and Year - End Month and Year"></div>
+                                            <div class="resume-position-time"><?=$resumeArray["job1Tenure"]?></div>
                                         </div><!--//resume-timeline-item-header-->
                                         <div class="resume-timeline-item-desc">
-                                            <p><input type="text" name="job1Desc" placeholder="description"></p>
+                                            <p><?=$resumeArray["job1Desc"]?></p>
                                             <h4 class="resume-timeline-item-desc-heading font-weight-bold"><?='Achievements:'?></h4>
                                             <ul>
-                                                <li><input type="text" name="job1Achieve" placeholder="achievement"></li>
+                                                <li><?=$resumeArray["job1Achieve"]?></li>
                                             
                                             </ul>
                                         
                                             <h4 class="resume-timeline-item-desc-heading font-weight-bold"><?php 'Technologies used:'?></h4>
                                             <ul class="list-inline">
                                             
-                                                <li class="list-inline-item"><span class="badge bg-secondary badge-pill"><input type="text" name="job1Tech1" placeholder="Tech used"></span></li>
+                                                <li class="list-inline-item"><span class="badge bg-secondary badge-pill"><?=$resumeArray["job1Tech1"]?></span></li>
                                         
                                             </ul>
                                         </div><!--//resume-timeline-item-desc-->
@@ -155,32 +155,29 @@ require_once('../lib/functions.php');
                                     <ul class="list-unstyled mb-4">
                                     
                                         <li class="mb-2">
-                                            <div class="resume-skill-name"><input type="text" name="job1Skill1" placeholder="Skill"></div>
-                                        
+                                            <div class="resume-skill-name"><?=$resumeArray["job1Skill1"]?></div>
                                         </li>
                                     
                                     </ul>
                                 </div><!--//resume-skill-item-->
 
                                 <div class="resume-skill-item">
-                                    <h4 class="resume-skills-cat font-weight-bold"><?='Others'?></h4>
+                                    <h4 class="resume-skills-cat font-weight-bold"><?='Other Skills'?></h4>
                                     <ul class="list-inline">
                         
-                                        <li class="list-inline-item "><span class="badge badge-light"><input type="text" name="job1OtherSkill1" placeholder="Other Skill"></span></li>
-                                        
-
+                                        <li class="list-inline-item"><span class="badge badge-light text-black"><?=$resumeArray["job1OtherSkill1"]?></span></li>
                                     </ul>
                                 </div><!--//resume-skill-item-->
                             </div><!--resume-section-content-->
                         </section><!--//skills-section-->
                         <section class="resume-section education-section mb-5">
-                            <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3"><?='Education'?></h2>
+                            <h2 class="resume-section-title text-uppercase text-black font-weight-bold pb-3 mb-3"><?='Education'?></h2>
                             <div class="resume-section-content">
                                 <ul class="list-unstyled">
                         
                                     <li class="mb-2">
-                                        <div class="resume-degree-org"><input type="text" name="Highschool" placeholder="Higschool Name`"></div>
-                                        <div class="resume-degree-time"><input type="text" name="Highschoolyears" placeholder="Year - Year"></div>
+                                        <div class="resume-degree-org"><?=$resumeArray["Highschool"]?></div>
+                                        <div class="resume-degree-time"><?=$resumeArray["Highschoolyears"]?></div>
                                     </li>
                                 
                                 </ul>
@@ -194,8 +191,8 @@ require_once('../lib/functions.php');
                                     <li class="mb-2 ps-4 position-relative">
                                         <i class="resume-award-icon fas fa-trophy position-absolute" data-fa-transform="shrink-2"></i>
 
-                                        <div class="resume-award-name"><input type="text" name="award"></input></div>
-                                        <div class="resume-award-desc"><input type="text" name="awardDesc"></input></div>
+                                        <div class="resume-award-name"><?=$resumeArray["award"]?></div>
+                                        <div class="resume-award-desc"><?=$resumeArray["awardDesc"]?></div>
                                     </li>
                                   
                                 </ul>
@@ -207,7 +204,7 @@ require_once('../lib/functions.php');
                             <div class="resume-section-content">
                                 <ul class="list-unstyled resume-lang-list">
                                     
-                                    <li class="mb-2"><span class="resume-lang-name font-weight-bold"><input type="text" name="language"><input/></span></small></li>
+                                    <li class="mb-2"><span class="resume-lang-name font-weight-bold"><?=$resumeArray["language"]?></span></small></li>
                                     
                                 </ul>
                             </div>
@@ -217,8 +214,8 @@ require_once('../lib/functions.php');
                             <div class="resume-section-content">
                                 <ul class="list-unstyled">
                                    
-                                    <li class="mb-1"><input type="text" name="interest1" placeholder="Interest One"></li>
-                                    <li class="mb-1"><input type="text" name="interest2" placeholder="Interest Two"></li>
+                                    <li class="mb-1"><?=$resumeArray["interest1"]?></li>
+                                    <li class="mb-1"><?=$resumeArray["interest2"]?></li>
                                 </ul>
                             </div>
                         </section><!--//interests-section-->
@@ -229,28 +226,9 @@ require_once('../lib/functions.php');
             </div><!--//resume-body-->
             
         </div>
-    </article>
-    <script>
-function createAccount(){
-    <?php if (!isset($_SESSION["username"]))
-    {?>
-    let text = "You are not signed in.\nSign or Log in to Save your resume.\n or No";
-        if (confirm(text) == true) 
-        {
-            <?php header("location: signup_or_login.php")?>
-        } 
-        else{
-            
-        }
-        document.getElementById("demo").innerHTML = text;
-        <?php }?>}
-</script>
-         <button  type="submit" onclick="createAccount()"><?="Create Resume"?></button>
-     <p id="demo"></p>
-    </form>
+    </article> 
 
-    
-  
+
             </div>
         </header>
 
