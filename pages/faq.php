@@ -1,6 +1,4 @@
 <?php
-require_once('../lib/functions.php');
-require_once('../lib/csvFunc.php');
 
 $faqArray = csvFiletoArrayWithTwoIndexes('../data/faq.csv');
 ?>
@@ -74,6 +72,7 @@ $faqArray = csvFiletoArrayWithTwoIndexes('../data/faq.csv');
 				<li><b>Question <?php echo $i+1; echo ': </b>';?><?=$faqArray[$i][0]; ?></li>
 				<p>Answer: <?=$faqArray[$i][1]; ?></p>
 			<?php } }?>
+
 		</ul>
 		
 		<p>None of these questions help?</p>

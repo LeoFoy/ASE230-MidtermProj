@@ -3,6 +3,7 @@ require_once('../lib/functions.php');
 require_once('../lib/csvFunc.php');
 
 $tipsArray = csvFiletoArrayWithOneIndexes('../data/tips.csv');
+
 ?>
 
 <!DOCTYPE html>
@@ -90,4 +91,3 @@ $tipsArray = csvFiletoArrayWithOneIndexes('../data/tips.csv');
         <script src="../foot_in_door_website/js/scripts.js"></script>
 	</body>
 </html>
-
