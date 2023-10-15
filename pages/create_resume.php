@@ -2,10 +2,13 @@
 require_once('../lib/functions.php');
     //if the resume has been sumbitted
     if (count($_POST)>0){
-        $filename = createNewJsonfileFromArray($_POST);
-        //send the filename through GET to display resume
-        header("location: display_resume.php?resume=".$filename);
-    }
+        //username is set, user is logged on, save resume and view it
+            $filename = createNewJsonfileFromArray($_POST);
+            //send the filename through GET to display resume
+            header("location: display_resume.php?resume=".$filename);
+        }
+    
+        
     else{
 ?>
 <!DOCTYPE html>
@@ -71,6 +74,12 @@ require_once('../lib/functions.php');
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder"><?="Enter the information to create your resume"?></h1>
                 </div>
+<?php  if (!isset($_SESSION['username'])){
+        ?>
+        <div class="alert alert-dark" role="alert">
+            <?="You are not logged in!"?> <a href="signup.php" class="alert-link">Login here to create resume.</a></div>
+        <?php 
+        }else{?>
     <form method="POST" >
 
     <article class="resume-wrapper text-center position-relative">
@@ -230,22 +239,8 @@ require_once('../lib/functions.php');
             
         </div>
     </article>
-    <script>
-function createAccount(){
-    <?php if (!isset($_SESSION["username"]))
-    {?>
-    let text = "You are not signed in.\nSign or Log in to Save your resume.\n or No";
-        if (confirm(text) == true) 
-        {
-            <?php header("location: signup_or_login.php")?>
-        } 
-        else{
-            
-        }
-        document.getElementById("demo").innerHTML = text;
-        <?php }?>}
-</script>
-         <button  type="submit" onclick="createAccount()"><?="Create Resume"?></button>
+
+         <button  type="submit"><?="Create Resume"?></button>
      <p id="demo"></p>
     </form>
 
@@ -264,4 +259,4 @@ function createAccount(){
         <script src="../foot_in_door_website/js/scripts.js"></script>
     </body>
 </html>
-<?php }?>
+<?php }}?>
