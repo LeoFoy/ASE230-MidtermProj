@@ -1,5 +1,9 @@
 <?php
 require_once('../lib/functions.php');
+require_once('../lib/csvFunc.php');
+
+$tipsArray = csvFiletoArrayWithOneIndexes('../data/tips.csv');
+
 ?>
 
 <!DOCTYPE html>
@@ -64,12 +68,11 @@ require_once('../lib/functions.php');
         </header>
 		
 		<ul>
-			<li>Include name, address, email, and phone number. Also include linkedin username and website url if you have one.</li>
-			<li>Include a summary about yourself and what you hope to achieve if you get this new job</li>
-			<li>Include work history including job title, company worked for, location, and job description. Also consider including achievements gained from the job.</li>
-			<li>Include previously and/or currently attended schools.</li>
-			<li>Consider adding a professional headshot of you so your potential employers have an idea what you look like.</li>
-			<li>Consider including favorite hobbies. Some employers like to see what you are like outside of work.</li>
+			<?php
+			if(!empty($tipsArray)){
+				for($i=0; $i < count($tipsArray); $i++){ ?>
+				<li><b>Tip <?php echo $i+1; echo ': </b>';?><?=$tipsArray[$i][0]; ?></li>
+			<?php } }?>
 		</ul>
 		
 		<h2>Examples of Quality Resumes</h2>

@@ -1,5 +1,6 @@
 <?php
-require_once('../lib/functions.php');
+
+$faqArray = csvFiletoArrayWithTwoIndexes('../data/faq.csv');
 ?>
 
 <!DOCTYPE html>
@@ -64,10 +65,14 @@ require_once('../lib/functions.php');
         </header>
 		
 		<ul>
-			<li>Question: Do I need an account to create a resume? <br> Answer: Yes, this is to ensure your new resume is delivered to your email!</li>
-			<li>Question: What is most important to include on my resume? <br> Answer: Great question! Visit our <a href="../pages/tips.php">Resume-Making Tips</a> page for everything you need to include on your resume!</li>
-			<li>Question: I'm having trouble creating my resume. <br> Answer: No problem! Email or call one of us from our <a href="../pages/contact_us.php">Contact Us</a> page.</li>
-			<li>Question: Why is my credit card not going through? <br> Answer: Make sure you are using a credit card we carry. We carry Mastercard, Visa, and Discover. If your credit card is from one of the three comapnies, try contacting your credit card provider. </li>
+		
+			<?php 
+			if(!empty($faqArray)){
+				for($i=0; $i < count($faqArray); $i++){ ?>
+				<li><b>Question <?php echo $i+1; echo ': </b>';?><?=$faqArray[$i][0]; ?></li>
+				<p>Answer: <?=$faqArray[$i][1]; ?></p>
+			<?php } }?>
+
 		</ul>
 		
 		<p>None of these questions help?</p>
