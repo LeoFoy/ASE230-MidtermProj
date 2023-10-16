@@ -7,12 +7,14 @@ if(count($_POST) > 0){
 			$line = fgets($fp);
 			if(strstr($line, '<?php die() ?>') || strlen($line) < 5) continue;
 			$line = explode(',', trim($line));
-			if($line[0]==$_POST['username'] && $line[3]==$_POST['password']) {
+			if($line[0]==$_POST['username'] && password_verify($_POST['password'], $line[3])) {
 				//Sign the user in
 				//1. Save the users data into the session
 				//Redirect user to home page w logged in.
 				$_SESSION['username'] = $_POST['username'];
-				$_SESSION['password'] = $_POST['password'];
+				$_SESSION['email'] = $line[1];
+				$_SESSION['phone'] = $line[2];
+				$_SESSION['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
 				header('location: ../foot_in_door_website/index.php');
 			}
 		}
@@ -28,7 +30,6 @@ else {
 ?>
 
 <h1>Login with credentials</h1>
-
 <form method="POST">
 	Username:<input type="text" name="username" required></input><br>
 	</br>
