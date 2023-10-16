@@ -41,18 +41,18 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])) {
 			<header class="bg-dark py-5">
 				<div class="container px-4 px-lg-5 my-5">
 					<div class="text-center text-white">
-						<h1 class="display-4 fw-bolder">View Resume</h1>
+						<h1 class="display-6 fw-bolder">View Resume</h1>
 						<p class="lead fw-normal text-white-50 mb-0"><a "" href="#">Click to View Resume</a></p>
-						<h1 class="display-4 fw-bolder">Change Password</h1>
+						<h1 class="display-6 fw-bolder">Change Password</h1>
 						<p class="lead fw-normal text-white-50 mb-0"><a "" href="change_password.php">Click to Change Password</a></p>
-						<h1 class="display-4 fw-bolder">Change Username</h1>
+						<h1 class="display-6 fw-bolder">Change Username</h1>
 						<p class="lead fw-normal text-white-50 mb-0"><a "" href="change_username.php">Click to Change Username</a></p>
-						<h1 class="display-4 fw-bolder">Change Basic User Info</h1>
-						<p class="lead fw-normal text-white-50 mb-0"><a "" href="">Click to Change Basic User</a></p>
-						<h1 class="display-4 fw-bolder">Sign Out</h1>
+						<h1 class="display-6 fw-bolder">View Basic User Info</h1>
+						<p class="lead fw-normal text-white-50 mb-0"><a "" href="show_user_info.php">Click to View Basic User Info</a></p>
+						<h1 class="display-6 fw-bolder">Sign Out</h1>
 						<p class="lead fw-normal text-white-50 mb-0"><a "" href="signout.php">Click to Sign Out</a></p>
-						<h1 class="display-4 fw-bolder">Delete Account</h1>
-						<p class="lead fw-normal text-white-50 mb-0"><a "" href="">Click to Delete Account</a></p>
+						<h1 class="display-6 fw-bolder">Delete Account</h1>
+						<p class="lead fw-normal text-white-50 mb-0"><a "" href="delete.php">Click to Delete Account</a></p>
 						
 					</div>
 				</div>
@@ -63,3 +63,4 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])) {
 
 <?php } else {
 die(); }?>
+

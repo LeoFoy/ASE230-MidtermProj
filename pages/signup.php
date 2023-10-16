@@ -1,11 +1,26 @@
 <?php
 require_once('../lib/functions.php');
+$existingUser = False;
 if(count($_POST) > 0){
-	if (isset($_POST['username'][0]) && isset($_POST['email'][0]) && isset($_POST['phone'][0]) && isset($_POST['password'][0])){ 
-		$fp = fopen('../data/users.csv.php', 'a+');
-		fputs($fp, $_POST['username'].','.$_POST['email'].','.$_POST['phone'].','.$_POST['password'].PHP_EOL);
-		fclose($fp);
-		echo 'Account created!';	
+	if (isset($_POST['username'][0]) && isset($_POST['email'][0]) && isset($_POST['phone'][0]) && isset($_POST['password'][0])){
+		//check is account with username or email already exits
+		$fp = fopen('../data/users.csv.php', 'r');
+		while (!feof($fp)){
+			$line = fgets($fp);
+			if(strstr($line, '<?php die() ?>') || strlen($line) < 5) continue;
+			$line = explode(',', trim($line));
+			if($line[0]==$_POST['username'] || $line[1]==$_POST['email']) {
+				echo 'Account with that username/email is already created!';
+				$existingUser = True;
+			}
+		}
+		if ($existingUser == False){
+			//process information
+			$fp = fopen('../data/users.csv.php', 'a+');
+			fputs($fp, $_POST['username'].','.$_POST['email'].','.$_POST['phone'].','.password_hash($_POST['password'], PASSWORD_DEFAULT).PHP_EOL);
+			fclose($fp);
+			echo 'Account created!';	
+		}
 	}
 	else
 		echo 'username, email, phone, and password are missing';
